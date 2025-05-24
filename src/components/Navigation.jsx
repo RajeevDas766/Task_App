@@ -31,7 +31,7 @@ const Navigation = () => {
             Go Social
           </NavLink>
           <NavLink
-            to="/guru"
+            to="/askguru"
             className={({ isActive }) =>
               `flex items-center border-b-2 px-1 ${
                 isActive

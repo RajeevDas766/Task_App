@@ -5,7 +5,7 @@ import Navigation from './components/Navigation.jsx';
 import TasksOverview from './pages/TasksOverview.jsx';
 import GoSocial from './pages/GoSocial.jsx';
 import TaskDetails from './pages/TaskDetails.jsx';
-
+import AskGuru from "./pages/AskGuru.jsx"
 function App() {
   return (
     <Router>
@@ -19,6 +19,9 @@ function App() {
             <Route path="/" element={<TasksOverview />} />
             <Route path="/social" element={<GoSocial />} />
             <Route path="/task/:id" element={<TaskDetails />} />
+          </Routes>
+          <Routes>
+            <Route path='/askguru' element={<AskGuru />} />
           </Routes>
         </main>
       </div>

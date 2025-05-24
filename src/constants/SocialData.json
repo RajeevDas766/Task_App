@@ -1,0 +1,51 @@
+{
+  "topics": [
+    {
+      "title": "Parenting Hacks",
+      "description": "Share tips.",
+      "icon": "lightbulb",
+      "members": ["1.1k joined", "860 joined"]
+    },
+    {
+      "title": "Study Groups",
+      "description": "Join study circles.",
+      "icon": "users"
+    }
+  ],
+  "popularTopics": [
+    {
+      "title": "Healthy Habits",
+      "description": "Wellness tips.",
+      "icon": "hospital",
+      "members": ["1.2k joined", "980 joined"]
+    },
+    {
+      "title": "Academics",
+      "description": "Study strategies.",
+      "icon": "graduation-cap"
+    },
+    {
+      "title": "Activities",
+      "description": "Fun ideas.",
+      "icon": "activity"
+    }
+  ],
+  "businessPages": [
+    {
+      "title": "Tutoring Services",
+      "description": "Academic support.",
+      "icon": "store",
+      "members": ["2.3k joined", "1.7k joined"]
+    },
+    {
+      "title": "Workshops",
+      "description": "Join workshops.",
+      "icon": "graduation-cap"
+    },
+    {
+      "title": "Wellness Providers",
+      "description": "Health experts.",
+      "icon": "sprout"
+    }
+  ]
+}

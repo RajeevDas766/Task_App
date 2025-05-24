@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { ChevronRight, Edit } from "lucide-react";
+import CommentSection from "../components/taskDetails/CommentSection";
+import CriteriaCard from "../components/taskDetails/CriteriaCard";
 
 const TaskDetails = () => {
   const { id } = useParams();
@@ -96,29 +98,12 @@ const TaskDetails = () => {
           <h2 className="text-lg font-medium mb-4">Acceptance Criteria</h2>
           <div className="space-y-3">
             {acceptanceCriteria.map((criterion, index) => (
-              <div key={index} className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <input type="checkbox" className="w-5 h-5 rounded" />
-                  <span>{criterion}</span>
-                </div>
-                <button className="text-gray-400 hover:text-gray-600">
-                  <Edit size={16} />
-                </button>
-              </div>
+              <CriteriaCard key={index} criterion={criterion} />
             ))}
           </div>
         </div>
 
-        <div>
-          <h2 className="text-lg font-medium mb-4">Comments</h2>
-          <textarea
-            placeholder="Write your comment here..."
-            className="w-full h-32 p-3 rounded-lg resize-none"
-          />
-          <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            Post Comment
-          </button>
-        </div>
+        <CommentSection />
       </div>
     </div>
   );

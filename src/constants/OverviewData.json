@@ -1,0 +1,42 @@
+{
+  "categories": [
+    {
+      "title": "Academics",
+      "icon": "graduation-cap",
+      "tasksCount": 8
+    },
+    {
+      "title": "Career",
+      "icon": "briefcase",
+      "tasksCount": 5
+    },
+    {
+      "title": "Well Being",
+      "icon": "heart",
+      "tasksCount": 3
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Submit Math Assignment",
+      "due": "Tomorrow",
+      "category": "Academics",
+      "icon": "graduation-cap"
+    },
+    {
+      "id": 2,
+      "title": "Update Resume",
+      "due": "Friday",
+      "category": "Career",
+      "icon": "briefcase"
+    },
+    {
+      "id": 3,
+      "title": "Meditation Session",
+      "due": "Today",
+      "category": "Well Being",
+      "icon": "heart"
+    }
+  ]
+}
