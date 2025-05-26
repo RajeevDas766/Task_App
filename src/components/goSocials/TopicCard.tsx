@@ -28,48 +28,20 @@ const TopicCard = ({ topic }: { topic: Topic }) => {
   };
   return (
     <>
-    <div
-              style={{
-                background: "white",
-                padding: "16px",
-                borderRadius: "8px",
-                boxShadow: "0 0 5px #ccc",
-              }}
-            >
-              <div
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  background: "#ebf4ff",
-                  borderRadius: "8px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginBottom: "16px",
-                  color: "#2563eb",
-                }}
-              >
-                {iconMap[topic.icon]}
-              </div>
-              <h3 style={{ fontWeight: "600", marginBottom: "8px" }}>{topic.title}</h3>
-              <p style={{ color: "#555" }}>{topic.description}</p>
-    </div>
-    {topic.members && (
-      <div
-        style={{
-            color: "#2563eb",
-            fontSize: "12px",
-            display: "flex",
-            gap: "8px",
-            marginTop: "4px",
-            paddingLeft: "8px",
-        }}
-        >
-        {topic.members.map((m, idx) => (
+      <div className="bg-white p-4 rounded-lg shadow-sm">
+        <div className="w-10 h-10 bg-blue-50 rounded-lg flex justify-center items-center mb-4 text-blue-600">
+          {iconMap[topic.icon]}
+        </div>
+        <h3 className="font-semibold mb-2">{topic.title}</h3>
+        <p className="text-gray-600">{topic.description}</p>
+      </div>
+      {topic.members && (
+        <div className="text-blue-600 text-xs flex gap-2 mt-1 pl-2">
+          {topic.members.map((m, idx) => (
             <span key={idx}>{m}</span>
-        ))}
-    </div>
-    )}
+          ))}
+        </div>
+      )}
     </>
 
   )

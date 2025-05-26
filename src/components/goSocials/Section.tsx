@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react'
 import SearchBox from "./SearchBox"
-import TopicMembers from './TopicMembers';
 import TopicCard from './TopicCard';
 
 interface Topic {
@@ -30,18 +29,15 @@ const Section: React.FC<SectionProps> = ({ searchBar = false, topics, title, col
   
   return (
     <section className='space-y-4'>
-      <h2 style={{ fontWeight: "bold", fontSize: "20px", marginBottom: "16px" }}>
+      <h2 className="font-bold text-xl mb-4">
         {title}
       </h2>
 
       {searchBar&& <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat(${cols}, 1fr)`,
-          gap: "16px",
-        }}
+      <div 
+        className="grid gap-4"
+        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
       >
         {filteredTopics.map((topic, i) => (
           <div key={i}>
