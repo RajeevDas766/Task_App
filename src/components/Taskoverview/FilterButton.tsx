@@ -1,6 +1,12 @@
 import React from 'react'
 
-const FilterButton = ({ label, selected, onClick }) => {
+interface FilterButtonProps {
+  label: string
+  selected: boolean
+  onClick: () => void
+}
+
+const FilterButton: React.FC<FilterButtonProps> = ({ label, selected, onClick }) => {
   return (
     <button
       className={`px-4 py-2 rounded-lg transition-colors ${

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AskGuru = () => {
+const AskGuru: React.FC = () => {
   return (
     <div>AskGuru</div>
   )

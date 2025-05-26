@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   return (
     <nav className="bg-white shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex space-x-8 h-14">
           <NavLink
             to="/"
-            className={({ isActive }) =>
+            className={({ isActive }: { isActive: boolean }) =>
               `flex items-center border-b-2 px-1 ${
                 isActive
                   ? 'border-blue-600 text-blue-600'
@@ -20,7 +20,7 @@ const Navigation = () => {
           </NavLink>
           <NavLink
             to="/social"
-            className={({ isActive }) =>
+            className={({ isActive }: { isActive: boolean }) =>
               `flex items-center border-b-2 px-1 ${
                 isActive
                   ? 'border-blue-600 text-blue-600'
@@ -32,7 +32,7 @@ const Navigation = () => {
           </NavLink>
           <NavLink
             to="/askguru"
-            className={({ isActive }) =>
+            className={({ isActive }: { isActive: boolean }) =>
               `flex items-center border-b-2 px-1 ${
                 isActive
                   ? 'border-blue-600 text-blue-600'

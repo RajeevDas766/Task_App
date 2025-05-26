@@ -1,6 +1,10 @@
 import React from 'react'
 
-const TopicMembers = (topic) => {
+interface Topic {
+  members: string[];
+}
+
+const TopicMembers = ({ topic }: { topic: Topic }) => {
   return (
     <div
         style={{

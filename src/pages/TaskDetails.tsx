@@ -98,7 +98,7 @@ const TaskDetails = () => {
           <h2 className="text-lg font-medium mb-4">Acceptance Criteria</h2>
           <div className="space-y-3">
             {acceptanceCriteria.map((criterion, index) => (
-              <CriteriaCard key={index} criterion={criterion} />
+              <CriteriaCard key={index} index={index} criterion={criterion} />
             ))}
           </div>
         </div>

@@ -3,8 +3,22 @@ import React, { useState } from 'react'
 import SearchBox from "./SearchBox"
 import TopicMembers from './TopicMembers';
 import TopicCard from './TopicCard';
-const Section = ({searchBar=false,topics,title,cols}) => {
 
+interface Topic {
+  icon: 'lightbulb' | 'users' | 'hospital' | 'graduation-cap' | 'activity' | 'store' | 'sprout';
+  title: string;
+  description: string;
+  members?: string[];
+}
+
+interface SectionProps {
+  searchBar?: boolean;
+  topics: Topic[];
+  title: string;
+  cols: number;
+}
+
+const Section: React.FC<SectionProps> = ({ searchBar = false, topics, title, cols }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const filteredTopics = topics.filter(
     (t) =>

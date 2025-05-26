@@ -8,7 +8,15 @@ import {
   Store,
   Sprout
 } from 'lucide-react';
-const TopicCard = ({topic}) => {
+
+export interface Topic {
+  icon: 'lightbulb' | 'users' | 'hospital' | 'graduation-cap' | 'activity' | 'store' | 'sprout';
+  title: string;
+  description: string;
+  members?: string[];
+}
+
+const TopicCard = ({ topic }: { topic: Topic }) => {
   const iconMap = {
     lightbulb: <Lightbulb />,
     users: <Users />,

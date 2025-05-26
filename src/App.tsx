@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Navigation from './components/Navigation.jsx';
-import TasksOverview from './pages/TasksOverview.jsx';
-import GoSocial from './pages/GoSocial.jsx';
-import TaskDetails from './pages/TaskDetails.jsx';
-import AskGuru from "./pages/AskGuru.jsx"
-function App() {
+import Navigation from './components/Navigation';
+import TasksOverview from './pages/TasksOverview';
+import GoSocial from './pages/GoSocial';
+import TaskDetails from './pages/TaskDetails';
+import AskGuru from './pages/AskGuru';
+
+const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
@@ -19,14 +20,12 @@ function App() {
             <Route path="/" element={<TasksOverview />} />
             <Route path="/social" element={<GoSocial />} />
             <Route path="/task/:id" element={<TaskDetails />} />
-          </Routes>
-          <Routes>
-            <Route path='/askguru' element={<AskGuru />} />
+            <Route path="/askguru" element={<AskGuru />} />
           </Routes>
         </main>
       </div>
     </Router>
   );
-}
+};
 
 export default App;
