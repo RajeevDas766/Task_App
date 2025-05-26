@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { LucideProps } from 'lucide-react';
 import {
   Lightbulb,
   Users,
@@ -16,35 +17,37 @@ export interface Topic {
   members?: string[];
 }
 
-const TopicCard = ({ topic }: { topic: Topic }) => {
-  const iconMap = {
-    lightbulb: <Lightbulb />,
-    users: <Users />,
-    hospital: <Hospital />,
-    "graduation-cap": <GraduationCap />,
-    activity: <Activity />,
-    store: <Store />,
-    sprout: <Sprout />
-  };
+const iconMap: Record<Topic['icon'], React.ForwardRefExoticComponent<React.PropsWithoutRef<LucideProps> & React.RefAttributes<SVGSVGElement>>> = {
+  lightbulb: Lightbulb,
+  users: Users,
+  hospital: Hospital,
+  'graduation-cap': GraduationCap,
+  activity: Activity,
+  store: Store,
+  sprout: Sprout
+};
+
+const TopicCard: React.FC<{ topic: Topic }> = ({ topic }) => {
+  const Icon = iconMap[topic.icon] || Lightbulb;
+
   return (
-    <>
+    <div className="space-y-2">
       <div className="bg-white p-4 rounded-lg shadow-sm">
-        <div className="w-10 h-10 bg-blue-50 rounded-lg flex justify-center items-center mb-4 text-blue-600">
-          {iconMap[topic.icon]}
+        <div className="w-10 h-10 bg-blue-50 rounded-lg flex justify-center items-center mb-4">
+          <Icon className="text-blue-600" size={20} />
         </div>
         <h3 className="font-semibold mb-2">{topic.title}</h3>
         <p className="text-gray-600">{topic.description}</p>
       </div>
       {topic.members && (
-        <div className="text-blue-600 text-xs flex gap-2 mt-1 pl-2">
-          {topic.members.map((m, idx) => (
-            <span key={idx}>{m}</span>
+        <div className="flex flex-wrap gap-2 mt-2">
+          {topic.members.map((member, index) => (
+            <span key={index} className="text-blue-600 text-xs">{member}</span>
           ))}
         </div>
       )}
-    </>
+    </div>
+  );
+};
 
-  )
-}
-
-export default TopicCard
+export default TopicCard;

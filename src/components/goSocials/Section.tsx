@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react'
-import SearchBox from "./SearchBox"
+import React, { useState, useMemo } from 'react';
+import SearchBox from './SearchBox';
 import TopicCard from './TopicCard';
 
 interface Topic {
@@ -18,35 +17,41 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ searchBar = false, topics, title, cols }) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const filteredTopics = topics.filter(
-    (t) =>
-      t.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      t.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const [searchTerm, setSearchTerm] = useState('');
 
-  
-  
+  const filteredTopics = useMemo(() => {
+    const term = searchTerm.toLowerCase();
+    return topics.filter(
+      (t) =>
+        t.title.toLowerCase().includes(term) ||
+        t.description.toLowerCase().includes(term)
+    );
+  }, [searchTerm, topics]);
+
+  const colClass = {
+    1: 'grid-cols-1',
+    2: 'grid-cols-2',
+    3: 'grid-cols-3',
+    4: 'grid-cols-4',
+    5: 'grid-cols-5',
+    6: 'grid-cols-6',
+  }[cols] || 'grid-cols-1';
+
   return (
-    <section className='space-y-4'>
-      <h2 className="font-bold text-xl mb-4">
-        {title}
-      </h2>
+    <section className="space-y-4">
+      <h2 className="font-bold text-xl mb-2">{title}</h2>
 
-      {searchBar&& <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}
+      {searchBar && (
+        <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      )}
 
-      <div 
-        className="grid gap-4"
-        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
-      >
-        {filteredTopics.map((topic, i) => (
-          <div key={i}>
-            <TopicCard topic={topic} key={i} />
-          </div>
+<div className={`grid gap-4 ${colClass}`}>
+        {filteredTopics.map((topic, index) => (
+          <TopicCard topic={topic} key={index} />
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Section
+export default Section;
